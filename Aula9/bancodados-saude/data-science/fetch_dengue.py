@@ -1,7 +1,7 @@
 import pandas as pd
 URL = (
 "https://info.dengue.mat.br/api/alertcity"
-"?geocode=4316902" # ERRO 1: código IBGE incorreto
+"?geocode=4316907" # Código IBGE correto
 "&disease=dengue"
 "&format=csv"
 "&ew_start=1"
@@ -14,8 +14,6 @@ df = df[
 [
 "data_iniSE",
 "casos",
-# "temp_min", # ERRO 2: nome de campo inexistente
-# "umid_med", # ERRO 2: nome de campo inexistente
 "Rt"
 ]
 ].dropna()
@@ -26,4 +24,4 @@ df.to_json(
 orient="records",
 date_format="iso"
 )
-print("Dados salvos:", len(df))
+print("Dados epidemiológicos salvos:", len(df))
